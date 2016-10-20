@@ -1,0 +1,9 @@
+.ComponentController{
+    min-height: 100px;
+    border: 1px solid #f0ad4e;
+}
+
+.ComponentController ul li{
+    padding: 0px;
+    margin: 0px;
+}

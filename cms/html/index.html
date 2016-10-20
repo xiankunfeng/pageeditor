@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cms">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>活动页面编辑</title>
+    <link rel="stylesheet" href="../assets/sass/base.css">
+</head>
+<body ng-controller="MainController">
+    <span class="appTitle">{{data.appName}}</span>
+    <div class="ComponentController" ng-controller="ComponentController">
+        <div class="container-row">
+            <div  ng-if="data.status!='editor'"  class="toolBox" style="text-align: right;">
+                        <span ng-if="tool.type==0" ng-click="EditorUtils.changeTool(tool,1,1)" ng-repeat="tool in data.tools">
+                            {{tool.name}}
+                        </span>
+            </div>
+            <div data-role="inline-block"  ng-if="data.status=='editor'"  class="editorContainer" data-role-offset="0col" data-role-col="12col">
+                <div style="background: #fff;padding: 10px;margin-top: 10px;">
+                    <!--手机壳-->
+                    <div class="mobile">
+                        <div class="header">
+                            <div class="phoneHeader">
+                                <img src="../assets/images/phoneHeader.png"  alt="">
+                            </div>
+                            <div class="battery">
+                                <img src="../assets/images/battery2.png"  alt="">
+                            </div>
+                            <div class="title">
+                                H5预售活动
+                            </div>
+                        </div>
+                        <div class="mobileContext">
+                            <div ng-repeat="element in data.elements">
+                                <element-container elements-data="element" ></element-container>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="finger">
+                            <span class="circle"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="inline-block"  ng-if="data.status=='editor'"  class="editorContainer" data-role-offset="2col" data-role-col="10col" style="text-align: right;">
+                <div style="background: #fff;padding: 10px;margin-top: 10px;">
+                    <!--手机壳-->
+                    <div class="mobile">
+                        <div class="header">
+                            <div class="phoneHeader">
+                                <img src="../assets/images/phoneHeader.png"  alt="">
+                            </div>
+                            <div class="battery">
+                                <img src="../assets/images/battery2.png"  alt="">
+                            </div>
+                            <div class="title">
+                                H5预售活动
+                            </div>
+                        </div>
+                        <div class="mobileContext">
+                            <div ng-repeat="element in data.templates.elements">
+                                <template-container elements-data="element" ></template-container>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="finger">
+                            <span class="circle"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="inline-block" ng-if="data.status=='preview'" class="preView" id="preView" data-role-offset="0col" data-role-col="24col"></div>
+            <div data-role="inline-block" drag ng-if="data.status=='editor'" class="elementEditorContainer"   data-role-offset="0col" data-role-col="8col">
+                <div drag-handle class="dragHandle"></div>
+                <div ng-if="data.status=='editor'"  data-role="inline-block" data-role-offset="0col" data-role-col="24col">
+                    <div data-role="inline-block" data-role-offset="0col" data-role-col="24col">
+                        <div class="toolBox">
+                            <span ng-repeat="tool in data.tools">
+                                <div ng-if="tool.type=='00'||tool.type=='01'||tool.type=='02'"   ng-click="EditorUtils.changeTool(tool,1,1)">{{tool.name}}</div>
+                                <div ng-if="tool.type==5||tool.type==6"   ng-click="EditorUtils.changeTool(tool,1,1)">{{tool.name}}</div>
+                                <div ng-if="tool.type!='00'&&!(tool.type==5||tool.type==6||tool.type=='01'||tool.type=='02')">{{tool.name}}</div>
+                                <div ng-if="tool.type=='1'||tool.type=='2'" class="options">
+                                    <span  ng-click="EditorUtils.changeTool(tool,1,1)">■</span>
+                                    <span  ng-click="EditorUtils.changeTool(tool,2,1)">■|■</span>
+                                    <span  ng-click="EditorUtils.changeTool(tool,3,1)">■|■|■</span>
+                                </div>
+                                <div  ng-if="tool.type==3" class="options">
+                                    <span ng-click="EditorUtils.changeTool(tool,1,1)">■</span>
+                                </div>
+                                <div ng-if="tool.type==4" class="options">
+                                    <span ng-click="EditorUtils.changeTool(tool,1,1)" class="tableSampleOneCol"></span>
+                                    <span ng-click="EditorUtils.changeTool(tool,2,1)" class="tableSampleTwoCol"></span>
+                                    <span ng-click="EditorUtils.changeTool(tool,3,1)" class="tableSampleThreeCol"></span>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="data.element.type==1">
+                        <box-editor></box-editor>
+                </div>
+                <div ng-if="data.element.type==2">
+                        <img-editor></img-editor>
+                </div>
+                <div ng-if="data.element.type==3">
+                        <text-editor></text-editor>
+                </div>
+                <div ng-if="data.element.type==4">
+                        <table-editor></table-editor>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/angular-drag/dist/angular-drag.js"></script>
+<script src="../assets/js/colpick.js"></script>
+<script src="../assets/js/base.js"></script>
+</body>
+</html>

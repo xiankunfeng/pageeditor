@@ -1,0 +1,229 @@
+<div style="position: relative;"  data-role="inline-block" data-role-offset="{{element.offset}}col" data-role-col="{{element.colNum}}col">
+    <div ng-if="element.type==1" ng-click="EditorUtils.editorElement(element,$event)" data-role="block" ng-class="{true:'editorTarget',false:''}[element.editorTarget]" style="
+                        background: {{element.backgroundColor}};
+                        min-height: {{element.minHeight}};
+                        padding:{{element.paddingTopAndBottom}}px {{element.paddingLeftAndRight}}px;
+                        margin:{{element.marginTopAndBottom}}px {{element.marginLeftAndRight}}px;
+                        border:{{element.borderWidth}}px {{element.borderStyle}} {{element.borderColor}};
+                        color:{{element.color}};
+                     ">
+        <div ng-if="data.status=='editor'"  class="tipMessage">{{element.title}}</div>
+        <span class="elementEditorIcon" ng-click="EditorUtils.delElement(element,$event,$index)"  title="删除当前元素">×</span>
+        <div ng-repeat="element in elements" style="position: relative;">
+            <template-container elements-data="element"></template-container>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div ng-if="element.type==2" ng-click="EditorUtils.editorElement(element,$event)" ng-class="{true:'editorTarget',false:''}[element.editorTarget]" style="
+                        background: {{element.backgroundColor}};
+                        min-height: {{element.minHeight}};
+                        margin-bottom: {{element.marginBottom}};
+                        border:{{element.borderWidth}}px {{element.borderStyle}} {{element.borderColor}};
+                        color:{{element.color}};
+                    ">
+        <span class="elementEditorIcon" ng-click="EditorUtils.delElement(element,$event,$index)"  title="删除当前元素">×</span>
+        <img ng-src="{{element.imgSrc}}" style="border:{{element.imgBorderSize}}px {{element.imgBorderStyle}} {{element.imgBorderColor}};width:{{element.imgWidth}};height:{{element.imgHeight}};border-radius: {{element.imgBorderRadius}}px">
+        <div ng-repeat="element in elements" style="position: relative;">
+            <template-container elements-data="element"></template-container>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div ng-if="element.type==3" ng-click="EditorUtils.editorElement(element,$event)" ng-class="{true:'editorTarget',false:''}[element.editorTarget]"  style="
+                        background: {{element.backgroundColor}};
+                        min-height: {{element.minHeight}};
+                        margin-bottom: {{element.marginBottom}};
+                        border:{{element.borderWidth}}px {{element.borderStyle}} {{element.borderColor}};
+                        color:{{element.color}};
+                    ">
+        <span class="elementEditorIcon" ng-click="EditorUtils.delElement(element,$event,$index)"  title="删除当前元素">×</span>
+                                        <span ng-if="element.linkUrl" style="
+                                             border:{{element.borderSize}}px {{element.borderStyle}} {{element.borderColor}};
+                                             width:{{element.width}};
+                                             height:{{element.height}};
+                                             border-radius: {{element.borderRadius}};
+                                             font-size: {{element.fontSize}}px;
+                                             font-family: {{element.fontFamily}};
+                                             padding:{{element.paddingTopAndBottom}}px {{element.paddingLeftAndRight}}px;
+                                             margin:{{element.marginTopAndBottom}}px {{element.marginLeftAndRight}}px;
+                                             display: {{element.display}};
+                                             color:{{elements.color}};
+                                             line-height: {{element.lineHeight}};
+                                             text-align:{{element.textAlign}};
+                                         ">
+                                            <a href="{{element.linkUrl}}">{{element.content}}</a>
+                                        </span>
+                                        <span ng-if="!element.linkUrl" style="
+                                                 border:{{element.borderSize}}px {{element.borderStyle}} {{element.borderColor}};
+                                                 width:{{element.width}};
+                                                 height:{{element.height}};
+                                                 border-radius: {{element.borderRadius}};
+                                                 font-size: {{element.fontSize}}px;
+                                                 font-family: {{element.fontFamily}};
+                                                 padding:{{element.paddingTopAndBottom}}px {{element.paddingLeftAndRight}}px;
+                                                 margin:{{element.marginTopAndBottom}}px {{element.marginLeftAndRight}}px;
+                                                 display: {{element.display}};
+                                                 color:{{elements.color}};
+                                                 line-height: {{element.lineHeight}};
+                                                 text-align:{{element.textAlign}};
+                                                ">
+                                            {{element.content}}
+                                        </span>
+        <div ng-repeat="element in elements" style="position: relative;">
+            <template-container elements-data="element"></template-container>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div ng-if="element.type==4" ng-click="EditorUtils.editorElement(element,$event)" ng-class="{true:'editorTarget',false:''}[element.editorTarget]" style="
+                            background: {{element.backgroundColor}};
+                            min-height: {{element.minHeight}};
+                            padding:{{element.paddingTopAndBottom}}px {{element.paddingLeftAndRight}}px;
+                            margin:{{element.marginTopAndBottom}}px {{element.marginLeftAndRight}}px;
+                            border:{{element.borderWidth}}px {{element.borderStyle}} {{element.borderColor}};
+                            color:{{element.color}};
+                    ">
+        <span class="elementEditorIcon" ng-click="EditorUtils.delElement(element,$even,$index)"  title="编辑当前元素" style="margin-top: -20px;margin-right: -46px;    background: #f72525;">×</span>
+        <table class="insertTable" style="width:{{element.width}};
+                                        background-image: url({{element.tableBackgroundUrl}});
+                                        background-repeat: no-repeat;
+                                        margin: {{element.tableMarginTopAndBottom}}px {{element.tableMarginLeftAndRight}}px;
+                                        background-color: {{element.tableBackgroundColor}};
+                                        border-top-width:{{element.tableBorderTopSize}}px;
+                                        border-bottom-width:{{element.tableBorderBottomSize}}px;
+                                        border-left-width:{{element.tableBorderLeftSize}}px;
+                                        border-right-width:{{element.tableBorderRightSize}}px;
+
+                                        border-top-style:{{element.tableBorderTopStyle}};
+                                        border-bottom-style:{{element.tableBorderBottomStyle}};
+                                        border-left-style:{{element.tableBorderLeftStyle}};
+                                        border-right-style:{{element.tableBorderRightStyle}};
+
+                                        border-top-color:{{element.tableBorderTopColor}};
+                                        border-bottom-color:{{element.tableBorderBottomColor}};
+                                        border-left-color:{{element.tableBorderLeftColor}};
+                                        border-right-color:{{element.tableBorderRightColor}};
+                                        background-size: cover;
+                                        text-align:{{element.tableTextAlign}};
+                                        ">
+            <tr ng-repeat="tr in element.rowElements" style="
+                                                border-top-width:{{element.tableTrBorderTopSize}}px;
+                                                border-bottom-width:{{element.tableTrBorderBottomSize}}px;
+                                                border-left-width:{{element.tableTrBorderLeftSize}}px;
+                                                border-right-width:{{element.tableTrBorderRightSize}}px;
+
+                                                border-top-style:{{element.tableTrBorderTopStyle}};
+                                                border-bottom-style:{{element.tableTrBorderBottomStyle}};
+                                                border-left-style:{{element.tableTrBorderLeftStyle}};
+                                                border-right-style:{{element.tableTrBorderRightStyle}};
+
+                                                border-top-color:{{element.tableTrBorderTopColor}};
+                                                border-bottom-color:{{element.tableTrBorderBottomColor}};
+                                                border-left-color:{{element.tableTrBorderLeftColor}};
+                                                border-right-color:{{element.tableTrBorderRightColor}};
+                                            ">
+                <td ng-repeat="item in tr.tdElements" style="
+                                                border-top-width:{{element.tableTrTdBorderTopSize}}px;
+                                                border-bottom-width:{{element.tableTrTdBorderBottomSize}}px;
+                                                border-left-width:{{element.tableTrTdBorderLeftSize}}px;
+                                                border-right-width:{{element.tableTrTdBorderRightSize}}px;
+
+                                                border-top-style:{{element.tableTrTdBorderTopStyle}};
+                                                border-bottom-style:{{element.tableTrTdBorderBottomStyle}};
+                                                border-left-style:{{element.tableTrTdBorderLeftStyle}};
+                                                border-right-style:{{element.tableTrTdBorderRightStyle}};
+
+                                                border-top-color:{{element.tableTrTdBorderTopColor}};
+                                                border-bottom-color:{{element.tableTrTdBorderBottomColor}};
+                                                border-left-color:{{element.tableTrTdBorderLeftColor}};
+                                                border-right-color:{{element.tableTrTdBorderRightColor}};
+
+                                                padding-top:{{element.tableTrTdPaddingTopSize}}px;
+                                                padding-bottom:{{element.tableTrTdPaddingBottomSize}}px;
+                                                padding-left:{{element.tableTrTdPaddingLeftSize}}px;
+                                                padding-right:{{element.tableTrTdPaddingRightSize}}px;
+                                            "
+                    colspan="{{item.colspan}}"
+                >
+                    <input ng-if="element.editorTarget" type="text" ng-model="item.text">
+                    <span ng-if="!element.editorTarget">{{item.text}}</span>
+                                                    <span class="tdOperater">
+                                                        <span ng-if="item.colspan>1||$last"  ng-click="EditorUtils.addTd(tr,item,$index,-1)" title="当前位置前插入单元格">⇤</span>
+                                                        <span ng-if="item.colspan>1||$last"  ng-click="EditorUtils.addTd(tr,item,$index,0)" title="当前位置后插入单元格">⇥</span>
+                                                        <span ng-if="!$first"  ng-click="EditorUtils.delTd(tr,item,$index)" title="删除当前行">×</span>
+                                                    </span>
+                </td>
+                <td class="operateTd">
+                    <div class="trOperate">
+                        <span ng-click="EditorUtils.insertTr(element,tr,$index,0)" title="上面插入行">⇖</span>
+                        <span ng-click="EditorUtils.insertTr(element,tr,$index,1)"  title="下面插入行">⇙</span>
+                        <span ng-if="!$first"  ng-click="EditorUtils.moveTr(element,tr,$index,1)" title="向上移一行">↑</span>
+                        <span ng-if="!$last"  ng-click="EditorUtils.moveTr(element,tr,$index,-1)" title="向下移一行">↓</span>
+                        <span ng-click="EditorUtils.delTr(element,$index)" title="删除当前行">×</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div ng-repeat="element in elements" style="position: relative;">
+            <template-container elements-data="element"></template-container>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div ng-if="element.type==5" ng-click="EditorUtils.editorElement(element,$event)" ng-class="{true:'editorTarget',false:''}[element.editorTarget]" style="
+                        background: {{element.backgroundColor}};
+                        min-height: {{element.minHeight}};
+                        padding:{{element.paddingTopAndBottom}}px {{element.paddingLeftAndRight}}px;
+                        margin:{{element.marginTopAndBottom}}px {{element.marginLeftAndRight}}px;
+                        border:{{element.borderWidth}}px {{element.borderStyle}} {{element.borderColor}};
+                        color:{{element.color}};
+                    ">
+        <span class="elementEditorIcon" ng-click="EditorUtils.delElement(element,$event,$index)"  title="删除当前元素">×</span>
+        <div class="flexContainer">
+            <div class="left"><img src="../assets/images/leftStyle10.png" style="width: 30px" alt=""></div>
+            <div>
+                <div><span style="font-size: 28px;font-weight: 600;color: rgb(106,191,232)">10</span>元</div>
+                <p style="font-size: 12px;">满99元可用</p>
+                <p style="font-size: 12px;">有效期：30天</p>
+            </div>
+            <div>
+                <p>小东超市店铺去</p>
+                <div style="position: relative;">
+                                    <span class="quanFont">
+                                            券
+                                    </span>
+                                    <span style="font-size: 12px;">
+                                        店铺通用
+                                    </span>
+                </div>
+                <p class="btn">
+                    领取
+                </p>
+            </div>
+        </div>
+    </div>
+    <div ng-if="element.type==6" ng-click="EditorUtils.editorElement(element,$event)" ng-class="{true:'editorTarget',false:''}[element.editorTarget]" style="
+                            background: {{element.backgroundColor}};
+                            min-height: {{element.minHeight}};
+                            margin-bottom: {{element.marginBottom}};
+                            border:{{element.borderWidth}}px {{element.borderStyle}} {{element.borderColor}};
+                            color:{{element.color}};
+                    ">
+        <span class="elementEditorIcon" ng-click="EditorUtils.delElement(element,$event,$index)"  title="删除当前元素">×</span>
+        <div class="goodsDetail">
+            <div class="goodsImg center"><img src="../assets/images/goodsSample.png" alt=""></div>
+            <div class="goodsName">
+                进口玻璃进口玻璃进口玻璃
+                <span class="buyNum">200人已买</span>
+            </div>
+            <div class="priceDetail">
+                <span class="currentPrice">￥28.00</span>
+                <span class="outDatePrice">￥38.00</span>
+                <p class="btn buyBtn redBg">
+                    选购
+                </p>
+            </div>
+        </div>
+        <div ng-repeat="element in elements" style="position: relative;">
+            <template-container elements-data="element"></template-container>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

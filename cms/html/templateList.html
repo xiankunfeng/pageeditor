@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>模板列表页面</title>
+    <style>
+
+        html,body{
+            height: 100%;;
+            padding: 0px;
+            margin: 0px;
+            background: rgb(245,245,245);
+        }
+        .container{
+            width: 500px;
+            height: 400px;;
+            box-sizing: border-box;
+            background: #f0f;
+            white-space: nowrap;
+        }
+        .container >div{
+            width: 50%;
+            box-sizing: border-box;
+            /*float: left;*/
+            display: inline-block;
+            height: 100%;
+            border:0px solid #ffc520;
+        }
+        .container >div:after{
+            /*display: block;
+            content: '';
+            float: none;
+            clear: both;*/
+
+        }
+
+        .flexContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: auto;
+            flex-direction: row;
+            background: #fff;;
+        }
+        .flexContainer>div,.flexContainer>span{
+            flex-grow: 1;
+
+        }
+
+        .btn{
+            display: inline-block;
+            padding: 5px 25px;
+            font-size: 16px;
+            background: coral;
+            border: 1px solid #ffc520;
+            border-radius: 3px;
+            color: #fff;
+        }
+
+        .quanFont{
+            display: inline-block;
+            padding: 5px 5px;
+            font-size: 36px;
+            background: #fff;
+            border: 3px solid #eee;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: #eee;
+            position: absolute;
+            z-index: -1;
+            left: -15px;
+        }
+
+        .listContainer{
+            padding: 10px 10px;
+        }
+
+        .left{
+            text-align: left;
+        }
+
+        .center{
+            text-align: center;
+        }
+
+        .goodsDetail{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            background: #fff;
+            padding: 5px;
+        }
+
+        .goodsName{
+            position: relative;
+            text-align: left;
+            height: 40px;
+            overflow: hidden;
+            line-height: 20px;
+            text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;
+        }
+        .buyNum{
+            position: relative;
+            float: right;
+            font-size: 12px;
+            color: #ff2c2d;
+            padding-right: 13px;
+        }
+
+        .priceDetail{
+
+        }
+
+        .currentPrice,.outDatePrice{
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .currentPrice{
+            color: #ff2c2d;
+        }
+        .outDatePrice{
+            color: #ddd;
+            text-decoration: line-through;
+        }
+
+        .redBg{
+            background: #ff2c2d;
+        }
+
+        .goodsImg img{
+            width: 80%;
+            max-width: 160px;
+        }
+
+        .mobile{
+            border: 1px solid #e0e0e0;
+            border-radius: 35px;
+            min-height: 300px;
+            width: 375px;;
+            padding: 20px;
+            padding-bottom: 10px;
+        }
+
+        .header{
+            width: 100%;
+        }
+
+        .phoneHeader{
+            text-align: center;
+            padding: 20px 0px;
+        }
+
+        .battery{
+            background: rgb(71,63,56);
+        }
+        .battery img{
+            width: 100%;;
+        }
+
+        .title{
+            background: rgb(71,63,56);
+            text-align: center;
+            padding: 10px 0px;
+            color: #fff;
+        }
+
+        .mobileContext{
+            border:1px solid #eaeaea;
+            min-height: 500px;;
+        }
+
+        .finger{
+            padding-top: 10px;
+            text-align: center;
+        }
+        .circle{
+            display: inline-block;
+            border: 1px solid #eaeaea;
+            padding: 20px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+        <div class="listContainer">
+            <div class="flexContainer">
+                <div class="left"><img src="../assets/images/leftStyle10.png" style="width: 30px" alt=""></div>
+                <div>
+                    <div><span style="font-size: 28px;font-weight: 600;color: rgb(106,191,232)">10</span>元</div>
+                    <p style="font-size: 12px;">满99元可用</p>
+                    <p style="font-size: 12px;">有效期：30天</p>
+                </div>
+                <div>
+                    <p>小东超市店铺去</p>
+                    <div style="position: relative;">
+                    <span class="quanFont">
+                            券
+                    </span>
+                    <span  style="font-size: 12px;">
+                        店铺通用
+                    </span>
+                    </div>
+                    <p class="btn">
+                        领取
+                    </p>
+                </div>
+            </div>
+            <div class="goodsDetail">
+                <div class="goodsImg center"><img src="../assets/images/goodsSample.png"  alt=""></div>
+                <div class="goodsName">
+                    进口玻璃进口玻璃进口玻璃进口玻璃进口玻璃进口玻璃进
+                    <span class="buyNum">200人已买</span>
+                </div>
+                <div class="priceDetail">
+                    <span class="currentPrice">￥28.00</span>
+                    <span class="outDatePrice">￥38.00</span>
+                    <p class="btn redBg">
+                        选购
+                    </p>
+                </div>
+            </div>
+
+            <div style="background: #fff;padding: 10px;margin-top: 10px;">
+
+                <!--手机壳-->
+                <div class="mobile">
+                    <div class="header">
+                        <div class="phoneHeader">
+                            <img src="../assets/images/phoneHeader.png"  alt="">
+                        </div>
+                        <div class="battery">
+                            <img src="../assets/images/battery2.png"  alt="">
+                        </div>
+                        <div class="title">
+                            H5预售活动
+                        </div>
+                    </div>
+                    <div class="mobileContext">
+
+                    </div>
+                    <div class="finger">
+                            <span class="circle"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
